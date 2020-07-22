@@ -1,8 +1,8 @@
 # ECO1
 Research of political uncertainty effects on corporate investment in Brazil
 
-This repo seeks to make public all methods and codes used to do a econometric research.
-From the data raw state (as it comes from global databases) to all steps needed to clean it, analyze, adjust and finally 
+This repo seeks to make public all methods and codes used to do a econometric research.  
+From the data raw state (as it comes from global databases) to all steps needed to clean it, analyze, adjust and finally  
 run the econometric models.
 
 Raw data sets the data used in this project in its origin format  
