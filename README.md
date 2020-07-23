@@ -8,6 +8,6 @@ From the data raw state (as it comes from global databases) to all steps needed 
 run the econometric models.
 
 /raw_data - Part of the sample used in the research. (All data will be avaliable soon)  
-/R - R codes to work the data and adjust it to a viable way of work in Econometric research.
+/R - R codes to clean the data, set to panel, analyze it and run regression models. (in progress)
 
 All work description, references and methodology will be put on a paper, the link for it will be ready soon.
