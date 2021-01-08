@@ -1,13 +1,20 @@
-# ECO1
-Research of the relantionship between economical political uncertainty and corporate investment in Brazil
+# Research of the relantionship between economical political uncertainty and corporate investment in Brazil
+
 
 This repository aims to make public all methods and codes used to do a econometric research in a master's level.
 
-From the minning of almost 100 datasets of financial data from Brazil in its unstructured raw state (acess in raw_data) as show in the picture below:
+This research focus in understanding how the political enviroment in Brazil affects corporate investment decisions, to do this we gather financial data from Economatica 2006-2019 and analyze it using a modified accelerator investment model:
+
+![Screenshot](CodeCogsEqn (1).png)
+
+From the minning of almost 100 datasets of financial data from Brazil in its unstructured raw state (acess in raw_data):
 
 ![Screenshot](raw_state.jpg)
 
-/raw_data - All data used in the project. 
-/R - R codes to clean the data, set to panel, analyze it and run regression models. (in progress)
+To a structured dataset with all variables needed to the research and graphical analysis:
 
-All work description, references and methodology will be put on a paper, the link for it will be ready soon.
+![Screenshot](clean_state.jpg)
+![Screenshot](Rplot.jpeg)
+
+
+And finally all 
