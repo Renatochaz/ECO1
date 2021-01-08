@@ -1,11 +1,11 @@
 # ECO1
-** Still in progress**
+Research of the relantionship between economical political uncertainty and corporate investment in Brazil
 
-Research of political uncertainty effects on corporate investment in Brazil
+This repository aims to make public all methods and codes used to do a econometric research in a master's level.
 
-This repo seeks to make public all methods and codes used to do a econometric research.  
-From the data raw state (as it comes from global databases) to all steps needed to clean it, analyze, adjust and finally  
-run the econometric models.
+From the minning of almost 100 datasets of financial data from Brazil in its unstructured raw state (acess in raw_data) as show in the picture below:
+
+![Screenshot](raw_state.jpg)
 
 /raw_data - All data used in the project. 
 /R - R codes to clean the data, set to panel, analyze it and run regression models. (in progress)
