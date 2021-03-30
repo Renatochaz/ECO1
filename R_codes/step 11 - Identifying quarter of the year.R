@@ -1,5 +1,9 @@
 ### Setting categorical variables for quarters and sectors
 
+### load data
+setwd("G:/Meu Drive/GIT/ECO1")
+df_pos1_lag <- read.csv("pos_win_1_constructed_quarterly_data_2006-2019.csv", stringsAsFactors = FALSE)
+
 # setting vector to identify quarters of the year (1 ~ 4)
 vec_q1 <- seq(1,77, by = 4)
 vec_q2 <- seq(2,78, by = 4)
@@ -25,7 +29,7 @@ fc_add_qindex <- function (dataset) {
 df_pos1_lag$Quarter_index <- fc_add_qindex(df_pos1_lag)
 
 # Re ordering
-df_pos1_lag <- df_pos1_lag[,c(1:2,53,3:52)]
+df_pos1_lag <- df_pos1_lag[,c(1:2,47,3:46)]
 
 # Transforming categorical quarter and sector to factor
 str(df_pos1_lag)
@@ -41,3 +45,4 @@ head(model.matrix(~SETOR_ECON_BOVESPA, data = df_pos1_lag))
 
 full_sample <- df_pos1_lag
 rm (list = setdiff(ls(),c("full_sample")))
+

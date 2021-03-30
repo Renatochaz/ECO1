@@ -56,7 +56,7 @@ somefunction(full_sample$Quarter)
   # set cut point (median) and dummy to indicate financial constrain
   # 1 = financial constrained, 0 otherwise
   summary(full_sample$kz)
-  kz_median <- 1.6076 
+  kz_median <- 1.6053 
   
   full_sample$kz_dum <- 0
   
@@ -64,9 +64,7 @@ somefunction(full_sample$Quarter)
 }
 # Add sector index number, adjust order of data 
 full_sample$SETOR_NUM <- as.numeric(as.factor(full_sample$SETOR_ECONOMATICA)) 
-full_sample <- full_sample[,c(1:6,57,7:56)]
-full_sample <- full_sample[,c(1,55,2:13,56:57,14:55)]
-full_sample <- full_sample[,-c(58)]
+full_sample <- full_sample[,c(1,48,2:3,50,51,4:12,49,13:47)]
 
 # subset sample in constrained and unconstrained
 constrained_sample <- subset(full_sample, kz_dum == 1)
