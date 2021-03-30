@@ -2,11 +2,11 @@
 
 ### Pos winsorizing at 1% all variables
 {
-  t <- df_after[,12:43]
+  t <- df_after[,12:46]
   t <- lapply(t, Winsorize, probs = c (0.01, 0.99))
   
   df_after1 <- df_after
-  df_after1[12:43] <- t[1:32]
+  df_after1[12:46] <- t[1:35]
   
   rownames(df_after1) <- 1:nrow(df_after1)
   

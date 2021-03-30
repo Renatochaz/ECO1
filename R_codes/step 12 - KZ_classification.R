@@ -17,10 +17,6 @@ somefunction <- function(x){
 }
 somefunction(full_sample$Quarter)
 
-# create ROE and D_PL
-full_sample$D_PL <- (full_sample$D_CP + full_sample$D_LP) / full_sample$PL
-full_sample$ROE <- full_sample$LL/full_sample$PL
-
 ### This sections creates KZ indexes quarterly, but this make the data 
 ### gapped, analyzes needs to be made with caution by advanced users
 {
@@ -66,6 +62,11 @@ full_sample$ROE <- full_sample$LL/full_sample$PL
   
   full_sample$kz_dum <- ifelse(full_sample$kz >= kz_median, 1, 0) 
 }
+# Add sector index number, adjust order of data 
+full_sample$SETOR_NUM <- as.numeric(as.factor(full_sample$SETOR_ECONOMATICA)) 
+full_sample <- full_sample[,c(1:6,57,7:56)]
+full_sample <- full_sample[,c(1,55,2:13,56:57,14:55)]
+full_sample <- full_sample[,-c(58)]
 
 # subset sample in constrained and unconstrained
 constrained_sample <- subset(full_sample, kz_dum == 1)
@@ -76,6 +77,7 @@ unconstrained_sample <- subset(full_sample, kz_dum == 0)
 somefunction(full_sample$Quarter)
 somefunction(constrained_sample$Quarter)
 somefunction(unconstrained_sample$Quarter)
+
 
 
 write.csv(full_sample, "full_sample.csv", row.names = FALSE)

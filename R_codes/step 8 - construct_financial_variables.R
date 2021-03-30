@@ -102,6 +102,7 @@ fc_construct_all <- function (dataset) {
   vec_caixanorm_k <- fc_construct_3(dataset,20,14)
   vec_divpagos_at <- fc_construct_3(dataset,26,13)
   vec_divpagos_k <- fc_construct_3(dataset,26,14)
+  vec_divpl <- fc_construct_3(dataset,15,14)
   
   ## Subsetting skipped observations
   dataset <- dataset[-c(vec_skips),]
@@ -126,6 +127,9 @@ fc_construct_all <- function (dataset) {
     dataset$COB_JUROS <- (dataset$EBIT/dataset$DESP_FIN)
     dataset$ROA <- (dataset$LL/dataset$AT)
     dataset$LN_PU <- log(dataset$PU)
+    dataset$DIV_PL <- (dataset$D_CP + dataset$D_LP)/dataset$PL
+    dataset$ROE <- (dataset$LL/dataset$PL)
+    dataset$ROK <- vec_divpl
   }
   
   return(dataset)

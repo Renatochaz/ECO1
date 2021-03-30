@@ -25,7 +25,7 @@ fc_add_qindex <- function (dataset) {
 df_pos1_lag$Quarter_index <- fc_add_qindex(df_pos1_lag)
 
 # Re ordering
-df_pos1_lag <- df_pos1_lag[,c(1:2,50,3:49)]
+df_pos1_lag <- df_pos1_lag[,c(1:2,53,3:52)]
 
 # Transforming categorical quarter and sector to factor
 str(df_pos1_lag)
