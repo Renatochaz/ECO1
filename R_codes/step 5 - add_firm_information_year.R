@@ -38,7 +38,7 @@
 
 rownames(df_main) <- 1:nrow(df_main)
 
-rm (list = setdiff(ls(),c("df_main")))
+rm (list = setdiff(ls(),c("df_main","fc_add_pu")))
 
 ### At this point the rawdata is organized as a panel data with all avaliable information
 ### but the data isn't ideal, it needs to be cleaned and througly checked 
