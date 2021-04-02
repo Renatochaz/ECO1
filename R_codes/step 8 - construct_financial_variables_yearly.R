@@ -1,7 +1,7 @@
 ### Creating variables (see information_variables and table_description to check names) to work in research
 
 setwd("G:/Meu Drive/GIT/ECO1")
-df <- read.csv("constructed_quarterly_data_2006-2019.csv", stringsAsFactors = FALSE)
+df <- read.csv("constructed_yearly_data_2005-2019.csv", stringsAsFactors = FALSE)
 str(df)
 
 ### Subsetting finance sector (bovespa classification)
@@ -18,7 +18,7 @@ fc_construct_1 <- function(df, var1,var2,var3,operator) {
   
   for (i in 1:nrow(df)) {
     
-    if (length(which(((df[i,"Quarter"] - df[i-1,"Quarter"]) == 1) & (df[i,"Código"] == df[i-1,"Código"]))) != 0) {
+    if (length(which(((df[i,"year"] - df[i-1,"year"]) == 1) & (df[i,"Código"] == df[i-1,"Código"]))) != 0) {
       
       vec_tmp <- c(vec_tmp,(getFunction(operator)((df[i,var1]),(df[i-1,var2])))/df[i-1,var3]) 
       
@@ -44,7 +44,7 @@ fc_construct_2 <- function(df, var1,var2,var3,operator) {
   
   for (i in 1:nrow(df)) {
     
-    if (length(which(((df[i,"Quarter"] - df[i-1,"Quarter"]) == 1) & (df[i,"Código"] == df[i-1,"Código"]))) != 0) {
+    if (length(which(((df[i,"year"] - df[i-1,"year"]) == 1) & (df[i,"Código"] == df[i-1,"Código"]))) != 0) {
       
       vec_tmp <- c(vec_tmp,(getFunction(operator)((df[i,var1]),(df[i,var2])))/df[i-1,var3]) 
       
@@ -70,7 +70,7 @@ fc_construct_3 <- function(df, var1,var2) {
   
   for (i in 1:nrow(df)) {
     
-    if (length(which(((df[i,"Quarter"] - df[i-1,"Quarter"]) == 1) & (df[i,"Código"] == df[i-1,"Código"]))) != 0) {
+    if (length(which(((df[i,"year"] - df[i-1,"year"]) == 1) & (df[i,"Código"] == df[i-1,"Código"]))) != 0) {
       
       vec_tmp <- c(vec_tmp,(df[i,var1]/df[i-1,var2])) 
       
@@ -88,6 +88,8 @@ fc_construct_3 <- function(df, var1,var2) {
   
 }
 
+## Change year location to adjust variable index below
+df <- df[,c(1,3:27,2)]
 # Function to create all variables
 fc_construct_all <- function (dataset) {
   

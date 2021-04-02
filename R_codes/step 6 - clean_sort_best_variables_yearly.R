@@ -50,10 +50,10 @@ df <- df_main
 }
 
 ## Depreciation information
-## DEP3 has 600 observations more than DEP2, but with huge values and negative ones too
-## DEP1 has close to null observations
-## Joining DEP2 and DEP3 add 2000 observations to DEP, but with questionable information
-## Better to work with DEP2 only
+### Work with dep 3
+summary(df$DEP_2)
+summary(df$DEP_3)
+
 {
   length(which(is.na(df$DEP_1) == TRUE))
   length(which(is.na(df$DEP_2) == TRUE))
@@ -74,7 +74,7 @@ df <- df_main
 }
 
 # Cleaning NA's from DEP
-df <- df[,-c(19,21)]
+df <- df[,-c(19,20)]
 colnames(df)[19] <- "DEP"
 
 # At this point the data has 14419 observations and 442 firms
