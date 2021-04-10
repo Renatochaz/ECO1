@@ -1,5 +1,5 @@
 ** Open
-. import delimited "G:\Meu Drive\GIT\ECO1\full_sample.csv"
+. import delimited "G:\Meu Drive\GIT\ECO1\yearly_full_sample.csv"
 
 ** Set sector and quarter dummies
 . tabulate setor_economatica, gen(dum_setor)
