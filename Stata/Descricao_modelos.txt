@@ -1,0 +1,17 @@
+GMM1: Amostra completa sem o investimento quadrático
+GMM2: Amostra completa com o investimento quadrático
+
+GMM3: Firmas não restritas sem o investimento quadrático
+GMM4: Firmas não restritas com o investimento quadrático
+
+GMM5: Firmas restritas sem o investimento quadrático
+GMM6: Firmas restritas com o investimento quadrático
+
+Variáveis:
+inv_atL1 = Investimento defasado
+SQinv_atL1 = Investimento quadrático
+ln_pu = Log da incerteza política (variável de interesse)
+fc_at = Fluxo de caixa
+d_at = Dívida total
+cv = Crescimento de vendas
+tam = Tamanho 

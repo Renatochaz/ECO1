@@ -83,12 +83,12 @@ xtabond2 inv_at inv_atL1 ln_pu fc_at $controle2_gmm if kz_dum==1, /*
  
  ***MODEL WITH SQUARED INVESTMENT***
 xtabond2 inv_at inv_atL1 SQinv_atL1 ln_pu fc_at $controle2_gmm if kz_dum==1, /*
-*/ gmmstyle(L.(inv_atL1), lag (1 3) collapse)/*
-*/ gmmstyle(L.(SQinv_atL1), lag (1 1) collapse)/*
+*/ gmmstyle(L.(inv_atL1), lag (3 3))/*
+*/ gmmstyle(L.(SQinv_atL1), lag (3 3))/*
 */ gmmstyle((fc_at), lag (1 1) collapse) /*
 */ gmmstyle((cv), lag (1 1) collapse) /*
 */ gmmstyle(L.(d_at), lag (1 1)) /*
-*/ gmmstyle((tam), lag (0 2) collapse) /*
+*/ gmmstyle((tam), lag (2 2) collapse) /*
 */ iv(ln_pu dum_setor*, equation(level)) robust small twostep h(2)
 
 

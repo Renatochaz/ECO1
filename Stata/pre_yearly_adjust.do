@@ -33,17 +33,18 @@ xtabond2 inv_at inv_atL1 ln_pu fc_at $controle2_gmm, /*
 */ gmmstyle(L.(d_at), lag (0 3) collapse) /*
 */ gmmstyle((tam), lag (0 0) collapse) /*
 */ iv(ln_pu dum_setor*, equation(level)) robust small twostep h(2)
+est store gmm1
 
  ***MODEL WITH SQUARED INVESTMENT***
-** Working model (too high fc and d coefficients)
+** Working model 
 xtabond2 inv_at inv_atL1 SQinv_atL1 ln_pu fc_at $controle2_gmm, /*
 */ gmmstyle(L.(inv_atL1 SQinv_atL1), lag (2 3) collapse)/*
 */ gmmstyle(L.(fc_at), lag (2 3) collapse) /*
-*/ gmmstyle((cv), lag (2 2) collapse) /*
+*/ gmmstyle((cv), lag (2 3) collapse) /*
 */ gmmstyle(L.(d_at), lag (0 3) collapse) /*
 */ gmmstyle((tam), lag (0 0) collapse) /*
 */ iv(ln_pu dum_setor*, equation(level)) robust small twostep h(2)
-
+est store gmm2
 
 *** working table
 
@@ -51,51 +52,57 @@ xtabond2 inv_at inv_atL1 SQinv_atL1 ln_pu fc_at $controle2_gmm, /*
 
 ***MODEL WITHOUT SQUARED INVESTMENT***
 xtabond2 inv_at inv_atL1 ln_pu fc_at $controle2_gmm if kz_dum==0, /*
-*/ gmmstyle(L.(inv_atL1), lag (2 .) collapse)/*
-*/ gmmstyle(L.(fc_at), lag (2 .) collapse) /*
-*/ gmmstyle((cv), lag (2 .) collapse) /*
-*/ gmmstyle(L.(d_at), lag (0 3) collapse) /*
-*/ gmmstyle((tam), lag (0 0) collapse) /*
+*/ gmmstyle(L.(inv_atL1), lag (0 .) collapse)/*
+*/ gmmstyle(L.(fc_at), lag (3 .)) /*
+*/ gmmstyle((cv), lag (0 .) collapse) /*
+*/ gmmstyle(L.(d_at), lag (4 .) collapse) /*
+*/ gmmstyle((tam), lag (2 4)) /*
 */ iv(ln_pu dum_setor*, equation(level)) robust small twostep h(2)
+est store gmm3
  
- ***MODEL WITH SQUARED INVESTMENT***
+ ***MODEL WITH SQUARED INVESTMENT*** CV(0 .) L.FC(2 .) (L.FC (3 .) no collapse)
 xtabond2 inv_at inv_atL1 SQinv_atL1 ln_pu fc_at $controle2_gmm if kz_dum==0, /*
-*/ gmmstyle(L.(inv_atL1 SQinv_atL1), lag (2 3) collapse)/*
-*/ gmmstyle(L.(fc_at), lag (2 3) collapse) /*
-*/ gmmstyle((cv), lag (2 2) collapse) /*
-*/ gmmstyle(L.(d_at), lag (0 3) collapse) /*
-*/ gmmstyle((tam), lag (0 0) collapse) /*
+*/ gmmstyle(L.(inv_atL1 SQinv_atL1), lag (0 .) collapse)/*
+*/ gmmstyle(L.(fc_at), lag (3 .)) /*
+*/ gmmstyle((cv), lag (0 .) collapse) /*
+*/ gmmstyle(L.(d_at), lag (4 .) collapse) /*
+*/ gmmstyle((tam), lag (2 4)) /*
 */ iv(ln_pu dum_setor*, equation(level)) robust small twostep h(2)
+est store gmm4
 
 *** working table
+
+
+*** Saved working model
 
 ************ [KZ CONSTRAINED SAMPLE]************
 
-***MODEL WITHOUT SQUARED INVESTMENT***
+ ***MODEL WITHOUT SQUARED INVESTMENT***
 xtabond2 inv_at inv_atL1 ln_pu fc_at $controle2_gmm if kz_dum==1, /*
-*/ gmmstyle(L.(inv_atL1), lag (2 .) collapse)/*
+*/ gmmstyle(L.(inv_atL1), lag (1 3))/*
 */ gmmstyle(L.(fc_at), lag (2 .) collapse) /*
 */ gmmstyle((cv), lag (2 .) collapse) /*
-*/ gmmstyle(L.(d_at), lag (0 3) collapse) /*
+*/ gmmstyle(L.(d_at), lag (1 .) collapse) /*
 */ gmmstyle((tam), lag (0 0) collapse) /*
 */ iv(ln_pu dum_setor*, equation(level)) robust small twostep h(2)
+est store gmm5
  
- ***MODEL WITH SQUARED INVESTMENT***
+ ***MODEL WITH SQUARED INVESTMENT*** L.FC (2~3 . COLLAPSE, (D 2 . COLLAPSE) (l.T 3 .) COLLAPSE) (L.CV 3 . collapse) (D 1 . collapse OR L.0 1)
 xtabond2 inv_at inv_atL1 SQinv_atL1 ln_pu fc_at $controle2_gmm if kz_dum==1, /*
-*/ gmmstyle(L.(inv_atL1 SQinv_atL1), lag (2 3) collapse)/*
-*/ gmmstyle(L.(fc_at), lag (2 3) collapse) /*
-*/ gmmstyle((cv), lag (2 2) collapse) /*
-*/ gmmstyle(L.(d_at), lag (0 3) collapse) /*
-*/ gmmstyle((tam), lag (0 0) collapse) /*
+*/ gmmstyle(L.(inv_atL1 SQinv_atL1), lag (1 .))/*
+*/ gmmstyle((fc_at), lag (3 .) collapse) /*
+*/ gmmstyle(L.(cv), lag (3 .) collapse) /*
+*/ gmmstyle(L.(d_at), lag (0 3)collapse ) /*
+*/ gmmstyle(L.(tam), lag (3 .) collapse) /*
 */ iv(ln_pu dum_setor*, equation(level)) robust small twostep h(2)
+est store gmm6
 
 *** working table
 
-
 ************ TABULATE RESULTS************
-outreg2 [full_sample1 full_sample2 constrained1 constrained2 unconstrained1 unconstrained2] using prelim_results.doc, /*
+outreg2 [gmm1 gmm2 gmm3 gmm4 gmm5 gmm6] using results.doc, /*
 */ se bdec(3) e(ar1p ar2p hansenp sarganp) word replace dec(4) symbol (***,**,*) alpha(0.01, 0.05, 0.1) /*
-*/ keep(l.inv_at c.L.inv_at#c.L.inv_at fc_at l.d_at d_at cv ln_pu l.tam tam)
+*/ keep(inv_atL1 SQinv_atL1 ln_pu fc_at d_at cv tam)
 
 
 
