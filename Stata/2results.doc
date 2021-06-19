@@ -1,0 +1,38 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx2592\clbrdrt\brdrs\cellx5184\clbrdrt\brdrs\cellx7776
+\ql \cell\qc (1)\cell\qc (2)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2592\cellx5184\cellx7776
+\ql \cell\qc Amostra_completa1\cell\qc Amostra_completa2\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2592\cellx5184\cellx7776
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx2592\clbrdrb\brdrs\cellx5184\clbrdrb\brdrs\cellx7776
+\ql VARIABLES\cell\qc inv_at\cell\qc inv_at\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx2592\cellx5184\cellx7776
+\ql \cell\qc \cell\qc \cell\row
+\ql inv_atL1\cell\qc -0.040**\cell\qc -0.136**\cell\row
+\ql \cell\qc (0.0198)\cell\qc (0.0576)\cell\row
+\ql SQinv_atL1\cell\qc \cell\qc 0.190**\cell\row
+\ql \cell\qc \cell\qc (0.0864)\cell\row
+\ql ln_pu\cell\qc -0.033***\cell\qc -0.040***\cell\row
+\ql \cell\qc (0.0111)\cell\qc (0.0128)\cell\row
+\ql fc_at\cell\qc 0.826***\cell\qc 1.166***\cell\row
+\ql \cell\qc (0.1719)\cell\qc (0.2265)\cell\row
+\ql d_at\cell\qc 0.941***\cell\qc 0.960***\cell\row
+\ql \cell\qc (0.0930)\cell\qc (0.0880)\cell\row
+\ql cv\cell\qc 0.166***\cell\qc 0.078***\cell\row
+\ql \cell\qc (0.0447)\cell\qc (0.0294)\cell\row
+\ql tam\cell\qc -0.054\cell\qc -0.072**\cell\row
+\ql \cell\qc (0.0406)\cell\qc (0.0344)\cell\row
+\ql Constant\cell\qc -2.079\cell\qc 1.315*\cell\row
+\ql \cell\qc (7.2571)\cell\qc (0.7829)\cell\row
+\ql \cell\qc \cell\qc \cell\row
+\ql Observations\cell\qc 2,146\cell\qc 2,146\cell\row
+\ql Number of firm_id\cell\qc 251\cell\qc 251\cell\row
+\ql ar1p\cell\qc 1.25e-06\cell\qc 5.95e-05\cell\row
+\ql ar2p\cell\qc 0.119\cell\qc 0.680\cell\row
+\ql hansenp\cell\qc 0.119\cell\qc 0.263\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx2592\clbrdrb\brdrs\cellx5184\clbrdrb\brdrs\cellx7776
+\ql sarganp\cell\qc 0.0796\cell\qc 0.0669\cell\row
+\pard\qc
+Standard errors in parentheses\par
+*** p<0.01, ** p<0.05, * p<0.1\par
+}

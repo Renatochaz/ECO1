@@ -1,8 +1,7 @@
 ##################### Starting descriptive statistics #####################
-
 ### Load
 setwd("G:/Meu Drive/GIT/ECO1")
-df <- read.csv("full_sample.csv", stringsAsFactors = FALSE)
+df <- read.csv("v2_quint_yearly_r_analize.csv", stringsAsFactors = FALSE)
 
 # slice to correlation
 df_slice <- df[,c("INV_AT","FC_AT","D_AT","CV","CAIXA_AT","DIVIDENDOS_AT","TAM","QTB",
@@ -19,3 +18,4 @@ upper[upper.tri(fcorr)] <- ""
 upper <- as.data.frame(upper)
 upper
 print(xtable(upper), type="latex")
+

@@ -54,7 +54,7 @@ est store Restritas1
 xtabond2 inv_at inv_atL1 SQinv_atL1 ln_pu fc_at $controle_gmm if kz_quintile==1, gmmstyle(L.(inv_atL1), lag (3 3)) gmmstyle (L.(SQinv_atL1), lag (0 4) collapse) gmmstyle(L.(fc_at), lag (4 .)) gmmstyle((cv), lag (0 5) collapse) gmmstyle(L.(d_at), lag (0 .)collapse) gmmstyle((tam), lag (2 4) collapse) robust small twostep h(2)
 est store Restritas2
 
-outreg2 [Amostra_completa1 Amostra_completa2 Não_restritas1 Não_restritas2 Restritas1 Restritas2] using results_year.doc, /*
+outreg2 [Amostra_completa1 Amostra_completa2 Restritas1 Restritas2 Não_restritas1 Não_restritas2] using results_year.tex, /*
 */ se bdec(3) e(ar1p ar2p hansenp sarganp) word replace dec(4) symbol (***,**,*) alpha(0.01, 0.05, 0.1) /*
 */ keep(inv_atL1 SQinv_atL1 ln_pu fc_at d_at cv tam)
 

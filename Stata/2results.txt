@@ -1,0 +1,29 @@
+	(1)	(2)
+	Amostra_completa1	Amostra_completa2
+VARIABLES	inv_at	inv_at
+		
+inv_atL1	-0.040**	-0.136**
+	(0.0198)	(0.0576)
+SQinv_atL1		0.190**
+		(0.0864)
+ln_pu	-0.033***	-0.040***
+	(0.0111)	(0.0128)
+fc_at	0.826***	1.166***
+	(0.1719)	(0.2265)
+d_at	0.941***	0.960***
+	(0.0930)	(0.0880)
+cv	0.166***	0.078***
+	(0.0447)	(0.0294)
+tam	-0.054	-0.072**
+	(0.0406)	(0.0344)
+Constant	-2.079	1.315*
+	(7.2571)	(0.7829)
+		
+Observations	2,146	2,146
+Number of firm_id	251	251
+ar1p	1.25e-06	5.95e-05
+ar2p	0.119	0.680
+hansenp	0.119	0.263
+sarganp	0.0796	0.0669
+Standard errors in parentheses		
+*** p<0.01, ** p<0.05, * p<0.1		

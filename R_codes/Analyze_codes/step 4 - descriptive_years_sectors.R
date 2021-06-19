@@ -1,8 +1,7 @@
 ##################### Starting descriptive statistics #####################
-
 ### Load
 setwd("G:/Meu Drive/GIT/ECO1")
-df <- read.csv("full_sample.csv", stringsAsFactors = FALSE)
+df <- read.csv("v2_quint_yearly_r_analize.csv", stringsAsFactors = FALSE)
 
 ## Count number of observations per year and build a frequency table
 freq_year <- count(df$year)

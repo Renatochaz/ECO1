@@ -1,31 +1,29 @@
 ##################### Starting descriptive statistics #####################
 ### Load
 setwd("G:/Meu Drive/GIT/ECO1")
-full_sample <- read.csv("full_sample.csv", stringsAsFactors = FALSE)
-tri_unconstrained_sample <- read.csv("tri_unconstrained_sample.csv", stringsAsFactors = FALSE)
-tri_constrained_sample <- read.csv("tri_constrained_sample.csv", stringsAsFactors = FALSE)
+full_sample <- read.csv("v2_quint_yearly_r_analize.csv", stringsAsFactors = FALSE)
+
+unconstrained <- subset(full_sample, kz_quintile == 0)
+constrained <- subset(full_sample, kz_quintile == 1)
 
 ## Descriptive table with latex output
-
 stargazer(full_sample[c("PU","INV_AT","FC_AT","D_AT","CV","CAIXA_AT","DIVIDENDOS_AT","TAM","QTB",
                     "COB_JUROS","DIV_PL","ROA","ROE","ROK")],
           median = TRUE, digits = 4,
           omit.summary.stat = c("p25", "p75", "min", "max"))
 
-stargazer(tri_constrained_sample[c("PU","INV_AT","FC_AT","D_AT","CV","CAIXA_AT","DIVIDENDOS_AT","TAM","QTB",
+stargazer(constrained[c("PU","INV_AT","FC_AT","D_AT","CV","CAIXA_AT","DIVIDENDOS_AT","TAM","QTB",
                            "COB_JUROS","DIV_PL","ROA","ROE","ROK")],
           median = TRUE, digits = 4,
           omit.summary.stat = c("p25", "p75", "min", "max"))
 
-stargazer(tri_unconstrained_sample[c("PU","INV_AT","FC_AT","D_AT","CV","CAIXA_AT","DIVIDENDOS_AT","TAM","QTB",
+stargazer(unconstrained[c("PU","INV_AT","FC_AT","D_AT","CV","CAIXA_AT","DIVIDENDOS_AT","TAM","QTB",
                              "COB_JUROS","DIV_PL","ROA","ROE","ROK")],
           median = TRUE, digits = 4,
           omit.summary.stat = c("p25", "p75", "min", "max"))
 
 # Paired sample test to check for mean differences
-
-
-t.test(PU ~ kz_dum, data = full_sample[-c(2),], paired = TRUE)
+t.test(PU ~ kz_quintile, data = full_sample[-c(2),], paired = TRUE)
 t.test(INV_AT ~ kz_dum, data = full_sample[-c(2),], paired = TRUE)
 t.test(FC_AT ~ kz_dum, data = full_sample[-c(2),], paired = TRUE)
 t.test(D_AT ~ kz_dum, data = full_sample[-c(2),], paired = TRUE)
